@@ -37,5 +37,48 @@ classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models
     
     var speak_this=new SpeechSynthesisUtterance(speak_data_1+speak_data_2);
     synth.speak(speak_this); }
+
+       
+  function result()
+  {
+    img = document.getElementById('captured_image');
+    classifier.classify(img, gotResult);
+  }
+
+
+function gotResult(error, results) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log(results);
+    document.getElementById("result_emotion_name").innerHTML = results[0].label;
+
+    predict_1=results[0].label;
+  
+    console.log(predict_1);
+    speak();
+   if (results[0].label=="best"){
+     document.getElementById("result_emoji").innerHTML="&#128077;";
+
+
+   }
+
+
+   if (results[0].label=="victory"){
+    document.getElementById("result_emoji").innerHTML="&#9996;";
+
+
+  }
+
+  
+  if (results[0].label=="amazing"){
+    document.getElementById("result_emoji").innerHTML="&#128076;";
+
+
+  }
+
+
+
+  }}
       
   
