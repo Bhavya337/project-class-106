@@ -35,7 +35,7 @@ classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models
     var synth=window.speechSynthesis;
     speak_data_1="the first prediction is "+ predict_1 ;
     
-    var speak_this=new SpeechSynthesisUtterance(speak_data_1+speak_data_2);
+    var speak_this=new SpeechSynthesisUtterance(speak_data_1);
     synth.speak(speak_this); }
 
        
